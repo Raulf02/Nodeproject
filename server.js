@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const app = express();
 
+
 // app.use middleware function
 // app.use((req, res, next) => {
 //     console.log('Time: ', Date.now());
