@@ -3,9 +3,6 @@ const fs = require('fs')
 
 const app = express();
 
-// app.get('/', (req, res) => {
-//     res.sendFile('./index.html', { root: __dirname })
-// })
 
 app.use(express.static('public'))
 
