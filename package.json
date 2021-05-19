@@ -4,12 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.4",
     "express": "^4.17.1",
-    "nodemon": "^2.0.7"
+    "give-me-a-joke": "^0.3.2",
+    "mocha": "^8.4.0",
+    "nodemon": "^2.0.7",
+    "request": "^2.88.2"
   }
 }

@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs')
 
 const app = express();
+const jokes = require("give-me-a-joke");
+
 
 
 app.use(express.static('public'))
@@ -11,7 +13,7 @@ app.use(express.static('public'))
 // Return a number between 0-1023 
 
 app.get('/api/random' ,(req, res) => {
-    res.json({"number": Math.floor(Math.random() * 1023 + 1)})
+    res.json({number: Math.floor(Math.random() * 1023 + 1)})
 });
 
 // Källa: https://www.digitalocean.com/community/tutorials/nodejs-express-basics
@@ -32,7 +34,7 @@ app.get('/api/count_vowels/:word', (req, res) => {
 });
 
 
-function vowel_count(str1) {
+function vowel_count(str1) {    
     let vowel_list = 'aeiouåäöAEIOUÅÄÖ';
     let vcount = 0;
     
@@ -43,6 +45,20 @@ function vowel_count(str1) {
     }
     return vcount;
 };
+
+// let count = 0;
+// app.get('/api/counter_add', (req, res) => {
+//      count++;
+//      res.send("Count is incremented")
+// })
+
+
+
+app.get('/api/random_dadjokes', (req, res) => {
+    jokes.getRandomDadJoke(function (joke) {
+        res.send({"Joke": joke});
+    });
+})
 
 
 app.listen(3000, () => console.log('Listening on port 3000.'))
